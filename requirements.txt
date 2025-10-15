@@ -1,0 +1,32 @@
+# Python dependencies for the InsightBot Conversational BI Assistant
+#
+# To install these dependencies, run:
+# pip install -r requirements.txt
+
+# --- Core AI/LLM Framework ---
+# The main orchestration framework
+langchain==0.2.1
+# Community-provided LangChain integrations (e.g., SQLDatabaseToolkit)
+langchain-community==0.2.1
+# LangChain integration for OpenAI models
+langchain-openai==0.1.8
+
+# --- AI Models & Tokenization ---
+# The OpenAI Python client library
+openai==1.30.5
+# Tokenizer used by OpenAI for text processing
+tiktoken==0.7.0
+
+# --- Database & Data Handling ---
+# The Python SQL toolkit and Object Relational Mapper
+SQLAlchemy==2.0.30
+
+# --- Environment & Utilities ---
+# Used for managing environment variables (like API keys)
+python-dotenv==1.0.1
+# Used in the notebook to download the initial database file
+wget==3.2
+
+# --- Notebook Execution ---
+# Required for running the Jupyter Notebook environment
+ipython==8.20.0
