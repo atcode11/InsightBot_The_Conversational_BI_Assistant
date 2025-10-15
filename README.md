@@ -2,7 +2,7 @@
 
 ![Language](https://img.shields.io/badge/Language-Python-blue.svg) ![Framework](https://img.shields.io/badge/Framework-LangChain-green.svg) ![Model Provider](https://img.shields.io/badge/Model%20Provider-OpenAI-purple.svg) ![Database](https://img.shields.io/badge/Database-SQL-orange.svg)
 
-> An AI-powered agent that empowers non-technical business users to query complex SQL databases using natural language, getting instant answers without writing a single line of code.
+An AI-powered agent that empowers non-technical business users to query complex SQL databases using natural language, getting instant answers without writing a single line of code.
 
 This project demonstrates the power of LLM-powered agents to act as a "reasoning engine" for interacting with structured data. Using the LangChain framework, this agent can understand user questions, inspect a database schema, write its own SQL queries, and even self-correct when it makes a mistake.
 
@@ -31,30 +31,10 @@ This project is a functional prototype of an autonomous SQL agent that connects 
 *   **Agent Type:** `ZERO_SHOT_REACT_DESCRIPTION`
 *   **Database:** SQLite
 
-### Visuals: Agent Reasoning Loop
+### Agent Reasoning Loop
 
 The agent uses a ReAct (Reason + Act) framework, allowing it to think step-by-step, choose a tool, observe the outcome, and refine its approach. This is critical for its self-correction ability.
 
-```mermaid
-graph TD
-    A[User Question] --> B{SQL Agent};
-    B --> C["Thought: I need to find the answer in the database."];
-    C --> D["Action: `sql_db_list_tables`"];
-    D --> E["Observation: Table names are AGENTS, CUSTOMER, ORDERS"];
-    E --> F["Thought: The table name is CUSTOMER, not customers. I will now write the correct query."];
-    F --> G["Action: `sql_db_query('SELECT ... FROM CUSTOMER ...')`"];
-    G --> H["Observation: (SQL Result)"];
-    H --> I["Thought: I have the final answer."];
-    I --> J[Final Answer to User];
-
-    subgraph Error Correction Loop
-        F_Fail["Thought: I think the table is 'customers'. I will query it."];
-        G_Fail["Action: `sql_db_query('SELECT ... FROM customers ...')`"];
-        H_Error["Observation: SQL Error: no such table 'customers'"];
-        F_Fail --> G_Fail;
-        G_Fail --> H_Error;
-        H_Error --> C;
-    end
 ## Results & Impact
 
 This prototype successfully demonstrates the agent's ability to autonomously query a database and self-correct from errors.
@@ -87,6 +67,9 @@ To run this project locally, follow these steps:
     ```bash
     git clone <your-repository-url>
     cd <your-repository-name>
+```mermaid
+graph TD
+    A[User Question] --> B{SQL
     ```
 
 2.  **Create and activate a virtual environment:**
