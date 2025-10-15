@@ -67,10 +67,6 @@ To run this project locally, follow these steps:
     ```bash
     git clone <your-repository-url>
     cd <your-repository-name>
-```mermaid
-graph TD
-    A[User Question] --> B{SQL
-    ```
 
 2.  **Create and activate a virtual environment:**
     
